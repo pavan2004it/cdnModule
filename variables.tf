@@ -9,3 +9,11 @@ variable "cdn_aliases" {
 variable "acm_cert_arn" {
   type = string
 }
+
+variable "origin_name" {
+  type = string
+}
+
+variable "cdn_env" {
+  type = string
+}

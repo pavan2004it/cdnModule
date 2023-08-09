@@ -11,7 +11,7 @@ resource "aws_cloudfront_distribution" "products_api" {
       name  = "X-Custom-Header"
       value = "random-value-123456"
     }
-    origin_id = "ringgitpay.uat"
+    origin_id = var.origin_name
     origin_shield {
       enabled              = true
       origin_shield_region = "ap-southeast-1"
@@ -32,7 +32,7 @@ resource "aws_cloudfront_distribution" "products_api" {
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "ringgitpay.uat"
+    target_origin_id = var.origin_name
 
     forwarded_values {
       query_string = true
@@ -56,7 +56,7 @@ resource "aws_cloudfront_distribution" "products_api" {
 
 
   tags = {
-    Environment = "uat"
+    Environment = var.cdn_env
   }
 
   viewer_certificate {
