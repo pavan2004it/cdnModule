@@ -1,15 +1,15 @@
 resource "aws_cloudfront_distribution" "products_api" {
   origin {
     domain_name              = var.alb_dns_name
-    connection_attempts = 3
-    connection_timeout = 10
+    connection_attempts = var.connection_attempts
+    connection_timeout = var.connection_timeout
     custom_origin_config {
       http_port              = 80
       https_port             = 443
       origin_protocol_policy = "https-only"
       origin_ssl_protocols   = ["TLSv1.2"]
-      origin_keepalive_timeout = 10
-      origin_read_timeout = 60
+      origin_keepalive_timeout = var.keepalive_timeout
+      origin_read_timeout = var.response_timeout
     }
     custom_header {
       name  = "X-Custom-Header"

@@ -17,3 +17,19 @@ variable "origin_name" {
 variable "cdn_env" {
   type = string
 }
+
+variable "connection_timeout" {
+  type = number
+}
+
+variable "connection_attempts" {
+  type = number
+}
+
+variable "keepalive_timeout" {
+  type = number
+}
+
+variable "response_timeout" {
+  type = number
+}
