@@ -33,3 +33,15 @@ variable "keepalive_timeout" {
 variable "response_timeout" {
   type = number
 }
+
+variable "headers" {
+  type = list(string)
+}
+
+variable "ttl_values" {
+  type = map(object({
+    min_ttl                 = number
+    default_ttl            = number
+    max_ttl                = number
+  }))
+}

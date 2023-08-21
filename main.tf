@@ -40,7 +40,7 @@ resource "aws_cloudfront_distribution" "products_api" {
 
     forwarded_values {
       query_string = true
-      headers = ["*"]
+      headers = var.headers
 
       cookies {
         forward = "all"
@@ -48,9 +48,9 @@ resource "aws_cloudfront_distribution" "products_api" {
     }
 
     viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    min_ttl                = var.ttl_values.min_ttl
+    default_ttl            = var.ttl_values.default_ttl
+    max_ttl                = var.ttl_values.max_ttl
   }
 
 
