@@ -48,9 +48,9 @@ resource "aws_cloudfront_distribution" "products_api" {
     }
 
     viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = var.ttl_values.min_ttl
-    default_ttl            = var.ttl_values.default_ttl
-    max_ttl                = var.ttl_values.max_ttl
+    min_ttl                = var.ttl_values[var.env].min_ttl
+    default_ttl            = var.ttl_values[var.env].default_ttl
+    max_ttl                = var.ttl_values[var.env].max_ttl
   }
 
 

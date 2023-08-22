@@ -45,3 +45,7 @@ variable "ttl_values" {
     max_ttl                = number
   }))
 }
+
+variable "env" {
+  type = string
+}
